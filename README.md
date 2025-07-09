@@ -2,8 +2,6 @@
 
 Web application that integrates machine learning models for image classification. This project consists of a Flask backend and a React frontend.
 
----
-
 ## Prerequisites
 
 Make sure the following are installed:
@@ -11,8 +9,6 @@ Make sure the following are installed:
 - Python 3.8 or higher 
 - Node.js and npm
 - Git
-
----
 
 ## Setup Instructions
 
@@ -55,7 +51,7 @@ pip install tensorflow
 ```bash
 python app.py
 ```
-The server will run on http://localhost:5000
+The server will run on `http://localhost:5000`
 
 ### 3. Frontend Setup
 1. Open a new terminal and navigate to the project root directory
@@ -67,24 +63,24 @@ npm install
 ```bash
 npm run dev
 ```
-The website will be available at http://localhost:5173
+The website will be available at `http://localhost:5173`
 
 ## Project Structure
 team_won_website/
-├── backend/
-│   ├── app.py
-│   ├── svm_model.pkl
-│   ├── logistic_regression_model.pkl
-│   ├── label_encoder.pkl
-│   └── scaler.pkl
-├── frontend/
-│   └── src/
-│       ├── components/
-│       └── ...
+├── backend/ 
+│ ├── app.py 
+│ ├── svm_model.pkl 
+│ ├── logistic_regression_model.pkl 
+│ ├── label_encoder.pkl
+│ └── scaler.pkl
+├── frontend/ 
+│ └── src/
+│ ├── components/ 
+│ └── ...
 
 ## Usage
 1. Ensure both backend and frontend servers are running
-2. Open your browser and navigate to http://localhost:5173
+2. Open your browser and navigate to `http://localhost:5173`
 3. Upload an image through the web interface
 4. The model will process the image and return the prediction
 
