@@ -24,7 +24,7 @@ We narrowed our dataset down to around 70k images. To prepare the dataset for tr
 * We balanced higher-level taxonomic orders by:
    * Sampling the same number of "artiodactyla" as there were "carnivora"
    * Dropping the original "artiodactyla" rows
-   * Concatenating the balanced data with the rest of the dataset
+   * Adding the balanced data with the rest of the dataset
 
 **5. Frequency Filtering and Truncation:**
 * To remove underrepresented classes and reduce memory usage:
