@@ -1,92 +1,57 @@
-# Wildlife Species Image Classification Project 
+# Wildlife Species Detector
 
-Web application that integrates machine learning models for image classification. This project consists of a Flask backend and a React frontend.
+Web-based tool for identifying wildlife species from images using machine learning. Built with React and styled with custom CSS, this project allows users to upload an image and receive a species prediction with confidence.
 
-## Prerequisites
 
-Make sure the following are installed:
+## Features 
+- Upload wildlife images from your device
+- Predicts species with a mock ML model (ready to integrate with a real backend)
+- Clean UI with a natural color scheme
+- Displays species name and prediction confidence
+- Includes an about section for project background
 
-- Python 3.8 or higher 
-- Node.js and npm
-- Git
 
-## Setup Instructions
+## Getting Started
 
-### 1. Clone the Repository
-
+### 1. Clone the repository:
 ```bash
-git clone https://github.com/pranauww/wildlife-species-identifier.git
-cd team_won_website
+git clone https://github.com/your-username/wildlife-detector-app.git
+cd wildlife-detector-app
 ```
 
-### 2. Backend Setup
-1. Navigate to the backend directory:
-```bash
-cd backend
-```
-2. Create a virtual environment (recommended but not required):
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-```
-3. Install Python dependencies:
-```bash
-pip install flask
-pip install flask-cors
-pip install numpy
-pip install Pillow
-pip install joblib
-pip install tensorflow
-```
-4. Download Model Files
-  - The model files (.pkl) are too large to be included in the repository
-  - Download the following files from the shared drive and place them in the backend/ directory:
-    - svm_model.pkl
-    - logistic_regression_model.pkl
-    - label_encoder.pkl
-    - scaler.pkl
-  - Place these files in the `backend` directory
-    
-5. Start the Flask server:
-```bash
-python app.py
-```
-The server will run on `http://localhost:5000`
-
-### 3. Frontend Setup
-1. Open a new terminal and navigate to the project root directory
-2. Install frontend dependencies:
+### 2. Install dependencies:
 ```bash
 npm install
 ```
-3. Start the development server:
+
+### 3. Start the development server:
 ```bash
 npm run dev
 ```
-The website will be available at `http://localhost:5173`
 
-## Project Structure
-```
-team_won_website/
-├── backend/
-│   ├── app.py
-│   ├── svm_model.pkl
-│   ├── logistic_regression_model.pkl
-│   ├── label_encoder.pkl
-│   └── scaler.pkl
-├── frontend/
-│   ├── src/
-│       ├── components/
-│       └── ...
-```
+Visit `http://localhost:5173` in your browser to see the app in action.
 
-## Usage
-1. Ensure both backend and frontend servers are running
-2. Open your browser and navigate to `http://localhost:5173`
-3. Upload an image through the web interface
-4. The model will process the image and return the prediction
 
-## Troubleshooting
-* If you encounter any issues with the model files, ensure they are properly downloaded and placed in the backend directory
-* Make sure both the backend and frontend servers are running simultaneously
-* Check the console for any error messages 
+## About This Project
+This app was developed to demonstrate computer vision in wildlife conservation. The UI is built using React, and the prediction logic is currently mocked to simulate ML results. Future versions will integrate a trained species classification model.
+
+
+
+## ML Integration (Coming Soon)
+To integrate the real machine learning model, connect the handleImageUpload function in App.jsx to a backend API that returns prediction results based on the uploaded image.
+
+
+
+## Tech Stack
+- React
+- Vite
+- Node.js
+- Custom CSS 
+
+
+
+
+
+
+
+
