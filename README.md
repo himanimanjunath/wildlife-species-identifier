@@ -66,7 +66,19 @@ npm run dev
 The website will be available at `http://localhost:5173`
 
 ## Project Structure
-```plaintext team_won_website/ ├── backend/ │ ├── app.py │ ├── svm_model.pkl │ ├── logistic_regression_model.pkl │ ├── label_encoder.pkl │ └── scaler.pkl ├── frontend/ │ ├── src/ │ │ ├── components/ │ │ └── ... ```
+```
+team_won_website/
+├── backend/
+│   ├── app.py
+│   ├── svm_model.pkl
+│   ├── logistic_regression_model.pkl
+│   ├── label_encoder.pkl
+│   └── scaler.pkl
+├── frontend/
+│   ├── src/
+│       ├── components/
+│       └── ...
+```
 
 ## Usage
 1. Ensure both backend and frontend servers are running
