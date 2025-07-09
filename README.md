@@ -12,30 +12,30 @@ Our data set is from [LILA BC](https://lila.science/datasets/nacti). It contains
 We narrowed our dataset down to around 70k images. To prepare the dataset for training, we followed this cleaning and balancing process using the metadata in `nacti_metadata.csv`:
 
 1. Removed Missing Labels:
-We dropped all rows with missing values to ensure clean and usable data for modeling.
+* We dropped all rows with missing values to ensure clean and usable data for modeling.
 
 2. Exploratory Data Analysis:
-We visualized the distribution of image labels (`common_name`) using a horizontal bar chart, which showed major class imbalances — some species had thousands of samples while others had very few.
+* We visualized the distribution of image labels (`common_name`) using a horizontal bar chart, which showed major class imbalances — some species had thousands of samples while others had very few.
 
 3. Class Balancing (Step 1: Species Level):
-To reduce bias, we performed class balancing between "red deer" and "domestic cow" by:
+* To reduce bias, we performed class balancing between "red deer" and "domestic cow" by:
    * Sampling the same number of "domestic cow" instances as there were "red deer"
    * Removing all original "domestic cow" entries
    * Combining the balanced sample back into the dataset
   
 4. Class Balancing (Step 2: Order Level):
-We balanced higher-level taxonomic orders by:
+* We balanced higher-level taxonomic orders by:
    * Sampling the same number of "artiodactyla" as there were "carnivora"
    * Dropping the original "artiodactyla" rows
    * Concatenating the balanced data with the rest of the dataset
 
 5. Frequency Filtering and Truncation:
-To remove underrepresented classes and reduce memory usage:
+* To remove underrepresented classes and reduce memory usage:
    * We dropped all species (`common_name`) with fewer than 100 occurrences
    * We capped the maximum number of samples per species to 40,000
 
 6. Final Dataset Prep:
-After filtering and balancing:
+* After filtering and balancing:
    * Each species had at least 100 examples, but no more than 40,000
    * The dataset was reset and ready for feature extraction + model training
 
