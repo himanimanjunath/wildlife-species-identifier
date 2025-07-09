@@ -2,44 +2,41 @@
 
 Web application that integrates machine learning models for image classification. This project consists of a Flask backend and a React frontend.
 
-## About 
-This is a computer vision project aimed to identify endangered species and rare animal sightings.
-
 ## Dataset
 Our data set is from [LILA BC](https://lila.science/datasets/nacti). It contains 3.7M camera trap images from five locations across the United States, with labels for 28 animal categories, primarily at the species level (for example, the most common labels are cattle, boar, and red deer).
 
 ## Preprocessing
 We narrowed our dataset down to around 70k images. To prepare the dataset for training, we followed this cleaning and balancing process using the metadata in `nacti_metadata.csv`:
 
-1. Removed Missing Labels:
+**1. Removed Missing Labels:**
 * We dropped all rows with missing values to ensure clean and usable data for modeling.
 
-2. Exploratory Data Analysis:
+**2. Created Visualizations:**
 * We visualized the distribution of image labels (`common_name`) using a horizontal bar chart, which showed major class imbalances — some species had thousands of samples while others had very few.
 
-3. Class Balancing (Step 1: Species Level):
+**3. Class Balancing (At Species Level):**
 * To reduce bias, we performed class balancing between "red deer" and "domestic cow" by:
    * Sampling the same number of "domestic cow" instances as there were "red deer"
    * Removing all original "domestic cow" entries
    * Combining the balanced sample back into the dataset
   
-4. Class Balancing (Step 2: Order Level):
+**4. Class Balancing (At Order Level):**
 * We balanced higher-level taxonomic orders by:
    * Sampling the same number of "artiodactyla" as there were "carnivora"
    * Dropping the original "artiodactyla" rows
    * Concatenating the balanced data with the rest of the dataset
 
-5. Frequency Filtering and Truncation:
+**5. Frequency Filtering and Truncation:**
 * To remove underrepresented classes and reduce memory usage:
    * We dropped all species (`common_name`) with fewer than 100 occurrences
    * We capped the maximum number of samples per species to 40,000
 
-6. Final Dataset Prep:
+**6. Final Dataset Prep:**
 * After filtering and balancing:
    * Each species had at least 100 examples, but no more than 40,000
    * The dataset was reset and ready for feature extraction + model training
 
-7. Label Encoding and Data Splitting:
+**7. Label Encoding and Data Splitting:**
    * Species labels were encoded into numeric values using `LabelEncoder`
    * The feature matrix `X` and label vector `y` were split into training/validation and test sets (80/20 split) using `train_test_split`
 
@@ -65,8 +62,9 @@ This preprocessing pipeline helped reduce class imbalance and ensured the datase
 * Improving the accuracy of our model
 
 
-## Try It Out: Prerequisites
+## Try It Out
 
+### Requirements
 Before you begin, ensure you have the following installed:
 - Python 3.8 or higher
 - Node.js and npm
