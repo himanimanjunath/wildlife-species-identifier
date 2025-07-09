@@ -2,13 +2,14 @@
 
 Web application that integrates machine learning models for image classification. This project consists of a Flask backend and a React frontend.
 
+## About 
 This is a computer vision project aimed to identify endangered species and rare animal sightings.
 
 ## Dataset
 Our data set is from [LILA BC](https://lila.science/datasets/nacti). It contains 3.7M camera trap images from five locations across the United States, with labels for 28 animal categories, primarily at the species level (for example, the most common labels are cattle, boar, and red deer).
 
 ## Preprocessing
-Starting with such a large dataset, we narrowed it down to around 70k images.
+We narrowed our dataset down to around 70k images.
 
 ## Model Training
 * Randomly sampled 2% of the full dataset (67,000 out of 3.2 million images), preserving the original class distribution in the subset.
@@ -21,8 +22,16 @@ Starting with such a large dataset, we narrowed it down to around 70k images.
     * Analyzed the confusion matrix and overall classification performance.
     * Observed strong linear separability in the dataset.
     * Chose a linear kernel for the SVM, as it is well-suited for high-dimensional, linearly separable data.
+ 
+## Challenges
+* Searching for an adequate dataset
+* Figuring out what parameters we need to train our model on - ResNet50 or ResNet18
+* Reducing the size of our dataset, while preserving its integrity
+   * 2.8 million data points after filtering 46 classes
+* Improving the accuracy of our model
 
-## Prerequisites
+
+## Try It Out: Prerequisites
 
 Before you begin, ensure you have the following installed:
 - Python 3.8 or higher
