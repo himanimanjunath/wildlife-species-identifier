@@ -8,10 +8,10 @@ Our data set is from [LILA BC](https://lila.science/datasets/nacti). It contains
 ## Preprocessing
 We narrowed our dataset down to around 70k images. To prepare the dataset for training, we followed this cleaning and balancing process using the metadata in `nacti_metadata.csv`:
 
-**1. Removed Missing Labels:**
+**1. Removing Missing Labels:**
 * We dropped all rows with missing values to ensure clean and usable data for modeling.
 
-**2. Created Visualizations:**
+**2. Creating Visualizations:**
 * We visualized the distribution of image labels (`common_name`) using a horizontal bar chart, which showed major class imbalances — some species had thousands of samples while others had very few.
 
 **3. Class Balancing (At Species Level):**
@@ -26,7 +26,7 @@ We narrowed our dataset down to around 70k images. To prepare the dataset for tr
    * Dropping the original "artiodactyla" rows
    * Adding the balanced data with the rest of the dataset
 
-**5. Frequency Filtering and Truncation:**
+**5. Filtering and Truncating:**
 * To remove underrepresented classes and reduce memory usage:
    * We dropped all species (`common_name`) with fewer than 100 occurrences
    * We capped the maximum number of samples per species to 40,000
@@ -36,7 +36,7 @@ We narrowed our dataset down to around 70k images. To prepare the dataset for tr
    * Each species had at least 100 examples, but no more than 40,000
    * The dataset was reset and ready for feature extraction + model training
 
-**7. Label Encoding and Data Splitting:**
+**7. Encoding Labels and Splitting Data:**
    * Species labels were encoded into numeric values using `LabelEncoder`
    * The feature matrix `X` and label vector `y` were split into training/validation and test sets (80/20 split) using `train_test_split`
 
