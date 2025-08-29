@@ -2,45 +2,46 @@
 
 Web application that integrates machine learning models for image classification. This project consists of a Flask backend and a React frontend.
 
+## Timeline
+February 2025 - June 2025
+
+## About Machine Learning Student Network
+Machine Learning Student Network (MLSN) is a club at UC Davis that serves to cultivate the perfect environment to build, learn, and grow in the field of machine learning.
+
+## Context
+As part of the spring cohort, a team of four students and I developed a computer vision project to assist scientists in identifying endangered species and rare animal sightings. Our goal was to support conservationists in monitoring animal populations and detecting species in unexpected environments, which can be crucial for ecological research and conservation efforts. 
+
 ## Dataset
 Our data set is from [LILA BC](https://lila.science/datasets/nacti). It contains 3.7M camera trap images from five locations across the United States, with labels for 28 animal categories, primarily at the species level (for example, the most common labels are cattle, boar, and red deer).
 
 ## Preprocessing
-We narrowed our dataset down to around 70k images. To prepare the dataset for training, we followed this cleaning and balancing process using the metadata in `nacti_metadata.csv`:
+First we cleaned and balanced our dataset using the metadata in `nacti_metadata.csv`, narrowing it down to ~70k images:
 
-**1. Removing Missing Labels:**
-* We dropped all rows with missing values to ensure clean and usable data for modeling.
+**1) Removed missing labels:** Dropped all rows with missing values.
 
-**2. Creating Visualizations:**
-* We visualized the distribution of image labels (`common_name`) using a horizontal bar chart, which showed major class imbalances — some species had thousands of samples while others had very few.
+**2) Created visualizations:** Visualized the distribution of image labels (`common_name`) using a horizontal bar chart, which showed major class imbalances; some species had thousands of samples while others had very few.
 
-**3. Class Balancing (At Species Level):**
-* To reduce bias, we performed class balancing between "red deer" and "domestic cow" by:
-   * Sampling the same number of "domestic cow" instances as there were "red deer"
-   * Removing all original "domestic cow" entries
-   * Combining the balanced sample back into the dataset
+**3) Balanced classes (at the species level):** To reduce bias, we performed class balancing between "red deer" and "domestic cow" by:
+* Sampling the same number of "domestic cow" instances as there were "red deer"
+* Removing all original "domestic cow" entries
+* Combining the balanced sample back into the dataset
   
-**4. Class Balancing (At Order Level):**
-* We balanced higher-level taxonomic orders by:
-   * Sampling the same number of "artiodactyla" as there were "carnivora"
-   * Dropping the original "artiodactyla" rows
-   * Adding the balanced data with the rest of the dataset
+**4) Balanced classes (at the order level):** We balanced higher-level taxonomic orders by:
+* Sampling the same number of "artiodactyla" as there were "carnivora"
+* Dropping the original "artiodactyla" rows
+* Adding the balanced data with the rest of the dataset
 
-**5. Filtering and Truncating:**
-* To remove underrepresented classes and reduce memory usage:
-   * We dropped all species (`common_name`) with fewer than 100 occurrences
-   * We capped the maximum number of samples per species to 40,000
+**5) Filtered and truncated:** To remove underrepresented classes and reduce memory usage:
+* Dropped all species (`common_name`) with fewer than 100 occurrences
+* Capped the maximum number of samples per species to 40,000
 
-**6. Final Dataset Prep:**
-* After filtering and balancing:
-   * Each species had at least 100 examples, but no more than 40,000
-   * The dataset was reset and ready for feature extraction + model training
+Initial sampling: From the full dataset of 3.7M images, we first randomly sampled 2% (~67k images), preserving the original class distribution. All subsequent preprocessing steps were performed on this 67k subset.
 
-**7. Encoding Labels and Splitting Data:**
-   * Species labels were encoded into numeric values using `LabelEncoder`
-   * The feature matrix `X` and label vector `y` were split into training/validation and test sets (80/20 split) using `train_test_split`
+**6) Encoded labels and split data:**
+* Encoded species labels into numeric values using `LabelEncoder`
+* The feature matrix `X` and label vector `y` were split into training/validation and test sets (80/20 split) using `train_test_split`
 
-This preprocessing pipeline helped reduce class imbalance and ensured the dataset was clean, representative, and well-structured for model evaluation.
+This preprocessing pipeline reduced class imbalance and ensured the dataset was clean and representative for model evaluation. 
 
 ## Model Training
 * Randomly sampled 2% of the full dataset (67,000 out of 3.2 million images), preserving the original class distribution in the subset.
