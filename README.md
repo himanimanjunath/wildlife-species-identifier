@@ -63,7 +63,7 @@ This preprocessing pipeline reduced class imbalance and ensured the dataset was 
 * Improving the accuracy of our model
 
 
-## Try It Out
+## Try It Out!
 
 ### Requirements
 Before you begin, ensure you have the following installed:
