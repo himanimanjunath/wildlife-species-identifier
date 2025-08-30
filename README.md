@@ -44,8 +44,8 @@ Initial sampling: From the full dataset of 3.7M images, we first randomly sample
 This preprocessing pipeline reduced class imbalance and ensured the dataset was clean and representative for model evaluation. 
 
 ## Model Training
-* Randomly sampled 2% of the full dataset (67,000 out of 3.2 million images), preserving the original class distribution in the subset.
-* Preprocessing pipeline included resizing images to 224×224 pixels, followed by feature extraction using ResNet50, producing a 2048-dimensional feature vector for each image.
+We trained models on the preprocessed subset (~67k images). Images were resized to 224×224 pixels, followed by feature extraction using ResNet50, producing a 2048-dimensional feature vector for each image.
+
 * For data sampling and evaluation:
     * Allocated 20% of the 2% subset for testing.
     * Both Logistic Regression and SVM achieved approximately 84% accuracy.
@@ -54,6 +54,29 @@ This preprocessing pipeline reduced class imbalance and ensured the dataset was 
     * Analyzed the confusion matrix and overall classification performance.
     * Observed strong linear separability in the dataset.
     * Chose a linear kernel for the SVM, as it is well-suited for high-dimensional, linearly separable data.
+ 
+## Deployment
+### Frontend
+I designed and implemented the frontend for this project to connect with the backend and showcase our work at the end-of-quarter demo. Using React (bundled with Vite) and custom CSS, I built an interface that allows users to upload an image and receive a species prediction with a confidence score.
+
+Features
+* Upload wildlife images directly from your device
+* Display predicted species name and confidence score
+* Mocked prediction logic to simulate ML results, to show the interface is functional while our backend integration was in progress
+
+For ML Integration:
+The frontend was structured to seamlessly connect with the Flask backend. Once deployed, the handleImageUpload function in App.jsx would forward uploaded images to the backend API, which will process them through the ResNet50 + SVM pipeline and return real prediction results.
+
+Tech Stack:
+* React
+* Vite
+* Node.js
+* Custom CSS
+
+### Backend
+
+## Project Tech Stack:
+
  
 ## Challenges
 * Searching for an adequate dataset
