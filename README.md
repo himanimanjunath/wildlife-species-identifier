@@ -6,7 +6,7 @@ Web application that integrates machine learning models for image classification
 February 2025 - June 2025
 
 ## About Machine Learning Student Network
-Machine Learning Student Network (MLSN) is a club at UC Davis that serves to cultivate the perfect environment to build, learn, and grow in the field of machine learning.
+Machine Learning Student Network (MLSN) at UC Davis fosters a collaborative environment where students can build skills, learn, and grow in the field of machine learning.
 
 ## Context
 As part of the spring cohort, a team of four students and I developed a computer vision project to assist scientists in identifying endangered species and rare animal sightings. Our goal was to support conservationists in monitoring animal populations and detecting species in unexpected environments, which can be crucial for ecological research and conservation efforts. 
@@ -57,7 +57,7 @@ We trained models on the preprocessed subset (~67k images). Images were resized 
  
 ## Deployment
 ### Frontend
-I designed and implemented the frontend for this project to connect with the backend and showcase our work at the end-of-quarter demo. Using React (bundled with Vite) and custom CSS, I built an interface that allows users to upload an image and receive a species prediction with a confidence score.
+I took on the responsibility of designing and implementing the frontend for this project to showcase our work at the end-of-quarter demo. Using React (bundled with Vite) and custom CSS, I built an interface within 24 hours that allows users to upload an image and receive a species prediction with a confidence score.
 
 Features
 * Upload wildlife images directly from your device
@@ -65,19 +65,44 @@ Features
 * Mocked prediction logic to simulate ML results, to show the interface is functional while our backend integration was in progress
 
 For ML Integration:
-The frontend was structured to seamlessly connect with the Flask backend. Once deployed, the handleImageUpload function in App.jsx would forward uploaded images to the backend API, which will process them through the ResNet50 + SVM pipeline and return real prediction results.
-
-Tech Stack:
-* React
-* Vite
-* Node.js
-* Custom CSS
+I had already structured the frontend so that it would seamlessly connect with the Flask backend when it was ready. Once deployed, the handleImageUpload function in App.jsx would forward uploaded images to the backend API, which will process them through the ResNet50 + SVM pipeline and return real prediction results.
 
 ### Backend
+The backend was developed using Flask, serving as the bridge between our trained machine learning model and React frontend. Its primary role is to receive image uploads, preprocess them, run inference, and return predictions in a structured format. The backend hosts the ResNet50 feature extractor and the SVM classifier, which together generate species predictions with confidence scores. It exposes REST API endpoints (e.g., /predict) that can be called directly by the frontend.
 
-## Project Tech Stack:
+Features:
+* Accepts image uploads from the frontend
+* Preprocesses images (resizing, normalization) before feature extraction
+* Runs inference with ResNet50 + SVM and returns species predictions with confidence
+* Returns responses in JSON format for integration with React
 
- 
+## Project Tech Stack
+### Data & preprocessing
+* Python (Pandas, NumPy) → data cleaning, filtering, class balancing, label encoding.
+* Matplotlib / Seaborn → visualizations (distribution plots, bar charts for class balance).
+* Scikit-learn (LabelEncoder, train_test_split, LogisticRegression, SVM) → label encoding, dataset splitting, baseline classifiers, evaluation.
+
+### Feature extraction & model training
+* TensorFlow / Keras (ResNet50 pretrained model) → extracted 2048-dimensional feature vectors from images.
+* Scikit-learn (SVM, Logistic Regression, confusion matrix, accuracy metrics) → model training, fine-tuning, evaluation.
+* OpenCV / PIL (Python Imaging Library) → resizing and preprocessing images to 224×224.
+
+### Backend
+* Flask → REST API server to handle requests:
+  * /predict endpoint received uploaded images from the frontend.
+  * Preprocessed the image, ran it through ResNet50 → feature vector → SVM → predicted species.
+  * Returned prediction as JSON.
+
+
+### Frontend
+* React.js → built the user-facing web app:
+  * Upload component for submitting images.
+  * Displaying predicted animal species returned by Flask.
+  * Basic UI for interacting with the model.
+  * Axios / Fetch API → sending POST requests with images to Flask backend and receiving responses.
+  * HTML/CSS → styling and layout.
+
+
 ## Challenges
 * Searching for an adequate dataset
 * Figuring out what parameters we need to train our model on - ResNet50 or ResNet18
