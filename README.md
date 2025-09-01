@@ -22,7 +22,7 @@ First we cleaned and balanced our dataset using the metadata in `nacti_metadata.
 
 **1) Removed missing labels:** Dropped all rows with missing values.
 
-**2) Created visualizations:** Visualized the distribution of image labels (`common_name`) using a horizontal bar chart, which showed major class imbalances; some species had thousands of samples while others had very few.
+**2) Created visualizations:** Visualized the distribution of image labels (`common_name`) using bar charts, which showed major class imbalances; some species had thousands of samples while others had very few.
 
 **3) Balanced classes (at the species level):** To reduce bias, we performed class balancing between "red deer" and "domestic cow" by:
 * Sampling the same number of "domestic cow" instances as there were "red deer"
