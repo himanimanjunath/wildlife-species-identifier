@@ -2,6 +2,9 @@
 
 Web application that integrates machine learning models for image classification. This project consists of a Flask backend and a React frontend.
 
+<img width="1642" height="779" alt="12" src="https://github.com/user-attachments/assets/cbcabe2b-569c-422d-8880-c4973d0e487f" />
+
+
 ## Timeline
 February 2025 - June 2025
 
@@ -43,6 +46,10 @@ Initial sampling: From the full dataset of 3.7M images, we first randomly sample
 
 This preprocessing pipeline reduced class imbalance and ensured the dataset was clean and representative for model evaluation. 
 
+<img width="1915" height="566" alt="7" src="https://github.com/user-attachments/assets/c1679550-a127-4bbc-be56-fbf53ec280dc" />
+
+<img width="1920" height="818" alt="8" src="https://github.com/user-attachments/assets/18e6820d-91b2-4c19-9e11-d1cd74027ae7" />
+
 ## Model Training
 We trained models on the preprocessed subset (~67k images). Images were resized to 224×224 pixels, followed by feature extraction using ResNet50, producing a 2048-dimensional feature vector for each image.
 
@@ -55,13 +62,21 @@ We trained models on the preprocessed subset (~67k images). Images were resized 
     * Observed strong linear separability in the dataset.
     * Chose a linear kernel for the SVM, as it is well-suited for high-dimensional, linearly separable data.
  
+<img width="1920" height="895" alt="10" src="https://github.com/user-attachments/assets/cb718b94-04cf-4396-ad8e-acfc72ea2252" />
+
+<img width="1913" height="926" alt="11" src="https://github.com/user-attachments/assets/cd16b6ef-890c-488d-a982-57bb08db006c" />
+
 ## Deployment
 ### Frontend
-I took on the responsibility of designing and implementing the frontend for this project to showcase our work at the end-of-quarter demo. Using React (bundled with Vite) and custom CSS, I built an interface within 24 hours that allows users to upload an image and receive a species prediction with a confidence score.
+I took on the responsibility of designing and implementing the frontend for this project to showcase our work at the end-of-quarter demo. Using React (bundled with Vite) and custom CSS, I built an interface within 24 hours that allows users to upload an image and receive a species prediction.
+
+<img width="1396" height="678" alt="Screenshot_2025-05-28_at_5 37 29_PM" src="https://github.com/user-attachments/assets/11a3ebba-cedb-4fcb-aad9-8c8c162ed7a7" />
+
+<img width="1390" height="697" alt="Screenshot_2025-05-28_at_5 37 47_PM" src="https://github.com/user-attachments/assets/32d4f912-fad1-456f-a3ac-7d3e62bd695f" />
 
 Features
 * Upload wildlife images directly from your device
-* Display predicted species name and confidence score
+* Display predicted species name 
 * Mocked prediction logic to simulate ML results, to show the interface is functional while our backend integration was in progress
 
 For ML Integration:
