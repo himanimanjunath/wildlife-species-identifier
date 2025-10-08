@@ -70,7 +70,9 @@ We trained models on the preprocessed subset (~67k images). Images were resized 
 ### Frontend
 I took on the responsibility of designing and implementing the frontend for this project to showcase our work at the end-of-quarter demo. Using React (bundled with Vite) and custom CSS, I built an interface within 24 hours that allows users to upload an image and receive a species prediction.
 
+<img width="1396" height="678" alt="Screenshot_2025-05-28_at_5 37 29_PM" src="https://github.com/user-attachments/assets/11a3ebba-cedb-4fcb-aad9-8c8c162ed7a7" />
 
+<img width="1390" height="697" alt="Screenshot_2025-05-28_at_5 37 47_PM" src="https://github.com/user-attachments/assets/32d4f912-fad1-456f-a3ac-7d3e62bd695f" />
 
 Features
 * Upload wildlife images directly from your device
